@@ -4,22 +4,28 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
     const allPostsData = getSortedPostsData();
     return {
         props: {
             allPostsData,
         },
     };
-}
+};
 
-export default function Home({ allPostsData }) {
+export default function Home({
+    allPostsData,
+}: {
+    allPostsData: {
+        date: string;
+        title: string;
+        id: string;
+    }[];
+}) {
     return (
         <Layout home>
-            {/* Keep the existing code here */}
-
-            {/* Add this <section> tag below the existing <section> tag */}
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
                 <h2 className={utilStyles.headingLg}>Blog</h2>
                 <ul className={utilStyles.list}>

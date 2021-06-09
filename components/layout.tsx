@@ -4,12 +4,10 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
-// Layout for webapp
-
 const name = "Sushil Buragute";
 export const siteTitle = "Asiimov Blogs";
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
     return (
         <div className={styles.container}>
             <Head>
